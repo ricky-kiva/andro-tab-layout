@@ -12,6 +12,9 @@ class HomeFragment : Fragment() {
 
     companion object {
         const val ARG_SECTION_NUMBER = "section_number"
+
+        // this variable set by purpose IF want 'send data' from 'Activity to Fragment'
+        const val ARG_NAME = "app_name"
     }
 
     override fun onCreateView(
@@ -27,6 +30,10 @@ class HomeFragment : Fragment() {
 
         val tvLabel: TextView = view.findViewById(R.id.section_label)
         val index = arguments?.getInt(ARG_SECTION_NUMBER, 0)
+
+        // this for IF want 'send data' from 'Activity to Fragment'
+        // this 'WILL GET' the 'data' from Activity
+        val name = arguments?.getString(ARG_NAME)
 
         tvLabel.text = getString(R.string.content_tab_text, index)
     }

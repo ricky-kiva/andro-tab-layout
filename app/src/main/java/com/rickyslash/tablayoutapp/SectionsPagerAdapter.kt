@@ -10,6 +10,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 // if Fragment is used, change constructor type to 'FragmentActivity'
 class SectionsPagerAdapter(activity: AppCompatActivity): FragmentStateAdapter(activity) {
 
+    // this IF you want to 'send data' from 'Activity to Fragment'
+    var appName: String = ""
+
     /* this not used because we are going to make things more flexible
 
     // this will 'display assigned fragment' 'based on position'
@@ -29,6 +32,10 @@ class SectionsPagerAdapter(activity: AppCompatActivity): FragmentStateAdapter(ac
         // this will bundle the 'position' to the 'arguments'
         fragment.arguments = Bundle().apply {
             putInt(HomeFragment.ARG_SECTION_NUMBER, position+1)
+
+            // this for IF want 'send data' from 'Activity to Fragment'
+            // this 'will send data to fragment'. 'AppName' 'obtained' from 'MainActivity'
+            putString(HomeFragment.ARG_NAME, appName)
         }
         return fragment
     }

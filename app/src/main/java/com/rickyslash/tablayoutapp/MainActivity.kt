@@ -27,6 +27,12 @@ class MainActivity : AppCompatActivity() {
         // this will instantiate the Adapter, and the 'rest is finding the View'
         // this also 'passing adapter' to 'viewPager'
         val sectionsPagerAdapter = SectionsPagerAdapter(this)
+
+        // this for IF want 'send data' from 'Activity to Fragment'
+        // this will set the variable on the Adapter
+        sectionsPagerAdapter.appName = resources.getString(R.string.app_name) // will pass 'app_name'
+
+        // this will 'finds the View' and 'passing adapter' to 'viewPager'
         val viewPager: ViewPager2 = findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
